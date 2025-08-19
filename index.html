@@ -55,6 +55,40 @@
       margin-top: 30px;
       font-weight: bold;
     }
+
+    #family {
+      margin-right: 475px;
+    }
+
+     #insurance {
+      margin-right: 420px;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(135deg, #4CAF50, #2E7D32); 
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      text-align: center;
+      align-items: center;
+    }
+
+    input[type="submit"]:hover {
+      background: linear-gradient(135deg, #66BB6A, #388E3C);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    input[type="submit"]:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
   </style>
 </head>
 <body>
@@ -64,33 +98,69 @@
 
     <div class="form-group">
       <label>Ажилтны код: <span class="required">*</span></label>
-      <input type="text" disabled>
+      <input type="text">
     </div>
 
     <div class="form-group">
       <label>Газар, хэлтэс: <span class="required">*</span></label>
-      <input type="text" disabled>
+      <input type="text" >
     </div>
 
     <div class="form-group">
       <label>Албан тушаал: <span class="required">*</span></label>
-      <input type="text" disabled>
+      <input type="text" >
     </div>
 
     <div class="form-group">
       <label>Овог, нэр: <span class="required">*</span></label>
-      <input type="text" disabled>
+      <input type="text" >
     </div>
 
 
     <div class="section-title">
       ГЭР БҮЛИЙН ГИШҮҮНИЙ МЭДЭЭЛЭЛ
-        <div class="form-group">
-      <label>Албан тушаал: <span class="required">*</span></label>
-      <input type="date" value="2021-11-25" disabled>
+       <br> 
+        <br> 
+      <div class="form-group">
+      <label>Гэр бүлийн гишүүн: <span class="required">*</span></label>
+     <br>
+     <br>
+      <select name="family" id="family">
+        <option value="Нөхөр">Нөхөр</option>
+        <option value="Эхнэр<">Эхнэр</option>
+        <option value="Хүүхэд">Хүүхэд</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Овог: <span class="required">*</span></label>
+      <input type="text" >
+    </div>
+
+    <div class="form-group">
+      <label>Нэр: <span class="required">*</span></label>
+      <input type="text" >
+    </div>
+
+    <div class="form-group">
+      <label>Регистрийн дугаар: <span class="required">*</span></label>
+      <input type="text" >
     </div>
       
     </div>
+
+     <div class="form-group">
+      <label>Даатгалын төрөл: <span class="required">*</span></label>
+     <br>
+     <br>
+      <select name="insurance" id="insurance">
+        <option value="Удирдлага багц">Удирдлага багц</option>
+        <option value="Ажилтан багц">Ажилтан багц</option>
+        
+      </select>
+    </div>
+
+    <input type="submit" value="Илгээх">
   </div>
 
 </body>
