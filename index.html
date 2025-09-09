@@ -4,9 +4,42 @@
 <html lang="mn">
 <head>
   <meta charset="UTF-8">
-  <title>Form Example</title>
+  <title>Ажилтны гэр бүлийн гишүүний даатгал</title>
   <link rel="stylesheet" href="index.css">
 </head>
+<script>
+function calculateInfo() {
+  let reg = document.getElementById("register").value.trim();
+
+  if (reg.length < 10) {
+    console.error("Регистрийн дугаар буруу байна!");
+    return;
+  }
+
+  let year = parseInt(reg.substring(2, 4), 10);
+  let month = parseInt(reg.substring(4, 6), 10);
+  let day = parseInt(reg.substring(6, 8), 10);
+
+
+  let fullYear = year >= 50 ? 1900 + year : 2000 + year;
+  let birthDate = new Date(fullYear, month - 1, day);
+
+  if (isNaN(birthDate.getTime())) {
+    console.error("Регистрийн огноо буруу байна!");
+    return;
+  }
+
+  let today = new Date();
+  let age = today.getFullYear() - fullYear;
+  let hasBirthdayPassed =
+    today.getMonth() > (month - 1) ||
+    (today.getMonth() === (month - 1) && today.getDate() >= day);
+
+  if (!hasBirthdayPassed) {
+    age--;
+  }
+}
+</script>
 <body>
 
   <form action="#">
@@ -59,6 +92,21 @@
     </div>
 
     <div class="form-group">
+      <label for="company">Одоо ажиллаж буй байгууллагын нэр:</label>
+      <input type="text" id="company" name="company" required>
+    </div>
+
+     <div class="form-group">
+      <label for="position">Албан тушаал:</label>
+      <input type="text" id="position" name="position" required>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Утасны дугаар:</label>
+      <input type="number" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
       <label for="insurance">Даатгалын төрөл:</label>
       <select id="insurance" name="insurance" required>
         <option value="Удирдлага багц">Удирдлага багц</option>
@@ -66,7 +114,9 @@
       </select>
     </div>
 
-    <input type="submit" value="Илгээх">
+    <input type="button" value="Илгээх" onclick="calculateInfo()">
+
+ 
   </form>
 
 </body>
